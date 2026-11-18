@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --accent-light: #fbcfe8;
+    --accent-mid: #f472b6;
+    --accent-deep: #ec4899;
+    --accent-glow: rgba(244, 114, 182, 0.45);
+  }
+
+  [data-panel-accent="blue"] {
+    --accent-light: #bae6fd;
+    --accent-mid: #38bdf8;
+    --accent-deep: #0284c7;
+    --accent-glow: rgba(56, 189, 248, 0.45);
+  }
+
+  [data-panel-accent="orange"] {
+    --accent-light: #fed7aa;
+    --accent-mid: #fb923c;
+    --accent-deep: #ea580c;
+    --accent-glow: rgba(251, 146, 60, 0.45);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* 120Hz High-Refresh Hardware-Accelerated Transitions & Scrollbars */
+.gpu-smooth {
+  will-change: transform, opacity;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pink-scrollbar::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.pink-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pink-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--accent-mid);
+  opacity: 0.4;
+  border-radius: 9999px;
+}
+
+/* Adaptive Glossy Primary Accent Button (follows selected panel configuration) */
+.glossy-pink-btn {
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-mid) 48%, var(--accent-deep) 100%);
+  box-shadow: 0 4px 18px -4px var(--accent-glow), inset 0 1px 1.5px rgba(255, 255, 255, 0.72);
+}
+.glossy-pink-btn:hover {
+  filter: brightness(1.06);
+}
+
+/* Explicit Glossy Pink, Light Glossy Blue & Glossy Orange Specular Surfaces */
+.glossy-pink-pill {
+  background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 50%, #ec4899 100%);
+  box-shadow: 0 4px 16px -4px rgba(244, 114, 182, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.75);
+}
+
+.glossy-blue-btn {
+  background: linear-gradient(135deg, #e0f2fe 0%, #7dd3fc 42%, #38bdf8 100%);
+  box-shadow: 0 4px 18px -4px rgba(56, 189, 248, 0.48), inset 0 1px 1.5px rgba(255, 255, 255, 0.8);
+}
+.glossy-blue-btn:hover {
+  background: linear-gradient(135deg, #f0f9ff 0%, #38bdf8 45%, #0284c7 100%);
+}
+
+.glossy-orange-btn {
+  background: linear-gradient(135deg, #ffedd5 0%, #fdba74 42%, #fb923c 100%);
+  box-shadow: 0 4px 18px -4px rgba(251, 146, 60, 0.48), inset 0 1px 1.5px rgba(255, 255, 255, 0.8);
+}
+.glossy-orange-btn:hover {
+  background: linear-gradient(135deg, #fff7ed 0%, #fb923c 45%, #ea580c 100%);
+}
+
+/* Glossy Panel Frame Accents */
+.panel-frame-pink {
+  border-color: rgba(244, 114, 182, 0.32);
+  box-shadow: 0 8px 30px -12px rgba(244, 114, 182, 0.18), inset 0 1px 0 rgba(251, 207, 232, 0.22);
+}
+
+.panel-frame-blue {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 30px -12px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(186, 230, 253, 0.25);
+}
+
+.panel-frame-orange {
+  border-color: rgba(251, 146, 60, 0.35);
+  box-shadow: 0 8px 30px -12px rgba(251, 146, 60, 0.2), inset 0 1px 0 rgba(254, 215, 170, 0.25);
+}

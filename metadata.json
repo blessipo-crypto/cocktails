@@ -1,0 +1,6 @@
+{
+  "name": "Vespera Mixology Atelier",
+  "description": "Mobile-first craft cocktail recipe studio, multi-spirit combination filter, interactive world distillation origin map, and technical balance calculator with offline PWA support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
